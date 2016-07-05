@@ -26,17 +26,7 @@ public class BluetoothActivity extends BaseActivity {
             transaction.commit();
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent serverIntent = new Intent(mFragment.getActivity(), DeviceListActivity.class);
-                mFragment.startActivityForResult(serverIntent, ClassicFragment.REQUEST_CONNECT_DEVICE_INSECURE);
-//                startOtherActivity(DeviceListActivity.class, null,ClassicFragment.REQUEST_CONNECT_DEVICE_INSECURE);
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
 
 

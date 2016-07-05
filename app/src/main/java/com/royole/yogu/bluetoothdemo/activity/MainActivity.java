@@ -17,4 +17,7 @@ public class MainActivity extends BaseActivity {
     public void OnClassicBtnClick(View view){
         startOtherActivity(BluetoothActivity.class,null);
     }
+    public void OnBLEBtnClick(View view){
+
+    }
 }

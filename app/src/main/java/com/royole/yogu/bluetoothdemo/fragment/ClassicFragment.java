@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -92,7 +94,10 @@ public class ClassicFragment extends Fragment {
             activity.finish();
         }
         ensureDiscoverable();
+
+
     }
+
 
 
     @Override
@@ -144,6 +149,14 @@ public class ClassicFragment extends Fragment {
         mConversationView = (ListView) view.findViewById(R.id.list_message);
         mOutEditText = (EditText) view.findViewById(R.id.edit_text_out);
         mSendButton = (Button) view.findViewById(R.id.button_send);
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent serverIntent = new Intent(getActivity(), DeviceListActivity.class);
+                startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
+            }
+        });
     }
 
     /**
@@ -257,6 +270,7 @@ public class ClassicFragment extends Fragment {
             return;
         }
         final ActionBar actionBar = activity.getActionBar();
+        Log.d(TAG,"Activity:"+activity.getClass().getSimpleName()+"...ActionBar"+actionBar);
         if (null == actionBar) {
             return;
         }
